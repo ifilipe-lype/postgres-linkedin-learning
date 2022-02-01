@@ -19,3 +19,15 @@ ALTER TABLE IF EXISTS human_resources.employees
 
 ALTER TABLE IF EXISTS human_resources.employees
     RENAME departmentent_id TO department_id;
+
+--- Creates indexes on employee_id, and last_name columns.
+
+CREATE INDEX employees_employee_id_idx
+    ON human_resources.employees USING btree
+    (employee_id ASC NULLS LAST)
+;
+
+CREATE INDEX employees_last_name_idx
+    ON human_resources.employees USING btree
+    (last_name ASC NULLS LAST)
+;
