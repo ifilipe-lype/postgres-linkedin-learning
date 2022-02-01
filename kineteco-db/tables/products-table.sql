@@ -22,3 +22,7 @@ CREATE INDEX products_product_id_idx
     ON manufacturing.products USING btree
     (product_id ASC NULLS LAST)
 ;
+
+--- Set category_id defaults to 3
+ALTER TABLE IF EXISTS manufacturing.products
+    ALTER COLUMN category_id SET DEFAULT 3;
