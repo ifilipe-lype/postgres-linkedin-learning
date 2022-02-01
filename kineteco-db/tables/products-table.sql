@@ -26,3 +26,7 @@ CREATE INDEX products_product_id_idx
 --- Set category_id defaults to 3
 ALTER TABLE IF EXISTS manufacturing.products
     ALTER COLUMN category_id SET DEFAULT 3;
+
+--- Adds a constraint for checking market validation
+ALTER TABLE IF EXISTS manufacturing.categories
+    ADD CONSTRAINT categories_market_check CHECK (market = 'domestic' OR market = 'industrial');
