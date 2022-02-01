@@ -16,3 +16,9 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS manufacturing.products
     OWNER to root;
+
+--- Creates a index on product_id column for boost search perfomance
+CREATE INDEX products_product_id_idx
+    ON manufacturing.products USING btree
+    (product_id ASC NULLS LAST)
+;
